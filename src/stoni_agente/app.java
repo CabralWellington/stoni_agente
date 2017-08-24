@@ -13,6 +13,7 @@ import stoni_bean.Tem;
 import stoni_connect.Busca_Informacao;
 import stoni_connect.PegaInformacao;
 import stoni_connect.ConectaRede;
+import stoni_controller.Filadeimpressao;
 import stoni_dao.Impressao_Dao;
 import stoni_dao.PDU_Dao;
 import stoni_dao.Tem_Dao;
@@ -30,7 +31,7 @@ public static String ID_Systema = "ADSA_ASDA";
      */
     public static void main(String[] args) throws InterruptedException {
         
-        Impressao fila = new Impressao();
+        Filadeimpressao fila = new Filadeimpressao();
         List<Impressao> listatemp;
         Tem_Dao temdao = new Tem_Dao();
         Tem tem = temdao.Listar().get(0);
@@ -43,7 +44,7 @@ public static String ID_Systema = "ADSA_ASDA";
         pdu = pdud.conversor(tem);
         pdu = conectaRede.BuscarOid(pdu, tem.getImpressora().getIpImpressora());
         listatemp = impredao.pduToImpressao(pdu, tem);
-        fila.insereFila2(listatemp);
+        fila.insereFila(listatemp);
         listatemp.removeAll(listatemp);
         pdu.clear();
         Thread.sleep(60000);
