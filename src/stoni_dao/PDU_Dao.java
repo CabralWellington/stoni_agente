@@ -24,6 +24,7 @@ public class PDU_Dao {
             pdu.add(new VariableBinding(new OID((tem.getEquipamento().getJobPagecountEquipamento()+(String.valueOf(i))))));
             pdu.add(new VariableBinding(new OID((tem.getEquipamento().getJobTypeEquipamento()+(String.valueOf(i))))));
             pdu.add(new VariableBinding(new OID((tem.getEquipamento().getJobUsernameEquipmaneto()+(String.valueOf(i))))));
+            pdu.add(new VariableBinding(new OID((tem.getEquipamento().getJobDateEquipamento()+(String.valueOf(i))))));
             }
         pdu.setType(PDU.GET);
         pdu.setRequestID(new Integer32(1));

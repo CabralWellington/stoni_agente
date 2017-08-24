@@ -131,6 +131,9 @@ public class Impressao_Dao {
                 } else {
                     impre.setNomeIdentidade("Outros");
                 }
+                j++;
+                
+                mudaData(pdu.get(j).toValueString());
                 if (impre.getQtdPaginasImprime() != 0) {
                     //System.out.println(impre.toString());
                 impre.setValorImprime(impre.getQtdPaginasImprime()*tem.getPreco().getA4PbPerfil());
@@ -158,8 +161,13 @@ public class Impressao_Dao {
     }
     
     private void mudaData(String data){
+        try {
         Date date = new Date(data);
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         System.out.println(format.format(date));
-    }
+        
+        } catch (Exception e) {
+        e.printStackTrace();
+        }
+        }
 }

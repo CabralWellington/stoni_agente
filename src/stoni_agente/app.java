@@ -49,7 +49,5 @@ public static String ID_Systema = "ADSA_ASDA";
         pdu.clear();
         Thread.sleep(25000);
        }
-        
-        
-}
+    }
 }
