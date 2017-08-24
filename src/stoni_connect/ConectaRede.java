@@ -55,12 +55,12 @@ public class ConectaRede {
             // Create Snmp object for sending data to Agent
             Snmp snmp = new Snmp(transporte);
 
-            //System.out.println("Sending Request to Agent...");
+            System.out.println("Sending Request to Agent...");
             ResponseEvent response = snmp.get(pdu, comtarget);
 
             // Process Agent Response
             if (response != null) {
-               // System.out.println("Got Response from Agent");
+               System.out.println("Got Response from Agent");
                 PDU responsePDU = response.getResponse();
                 if (responsePDU != null) {
                     int errorStatus = responsePDU.getErrorStatus();

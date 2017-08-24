@@ -9,7 +9,7 @@ import java.util.Date;
  */
 public class Impressao  implements java.io.Serializable {
 
-
+     private String nomeIdentidade;
      private Long idImpressao;
      private Identidade identidade;
      private Impressora impressora;
@@ -32,6 +32,14 @@ public class Impressao  implements java.io.Serializable {
        this.statusImprime = statusImprime;
        this.nomeDoArquivoImprime = nomeDoArquivoImprime;
        this.dataImprime = dataImprime;
+    }
+
+    public String getNomeIdentidade() {
+        return nomeIdentidade;
+    }
+
+    public void setNomeIdentidade(String nomeIdentidade) {
+        this.nomeIdentidade = nomeIdentidade;
     }
    
     public Long getIdImpressao() {

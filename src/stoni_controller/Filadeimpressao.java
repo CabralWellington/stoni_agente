@@ -5,6 +5,7 @@
  */
 package stoni_controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import stoni_bean.Impressao;
 
@@ -13,16 +14,25 @@ import stoni_bean.Impressao;
  * @author SAMSUNG
  */
 public class Filadeimpressao {
-    private List<Impressao> fila;
+    private ArrayList<Impressao> fila;
     
     
     public void insereFila(List<Impressao> insere){
-        for (int i = insere.size(); i > 0; i--) {
+        System.out.println((insere.size()-1));
+        
+        for (Impressao impressao : insere) {
+            System.out.println(insere.toString());
+        }
+        for (int i = (insere.size()-1); i == 0; i--){
             if(!this.fila.contains(insere.get(i))){
+                System.out.println("Inserido na fila = " + insere.get(i).toString());
                 this.fila.add(insere.get(i));
             }
         }
-        
+        if (this.fila.size()>(insere.size()+1)){
+            System.out.println("removido da fila = " + this.fila.get(0));
+            this.fila.remove(0);
+        }
     }
 
 }
