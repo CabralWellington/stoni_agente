@@ -162,9 +162,8 @@ public class Impressao_Dao {
     
     private void mudaData(String data){
         try {
-        Date date = new Date(data);
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-        System.out.println(format.format(date));
+       SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            System.out.println(sdf.format(new Date(data)));
         
         } catch (Exception e) {
         e.printStackTrace();
