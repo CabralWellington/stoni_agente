@@ -106,6 +106,11 @@ public class Impressao  implements java.io.Serializable {
         this.dataImprime = dataImprime;
     }
 
+    @Override
+    public String toString() {
+        return "Impressao{" + "nomeIdentidade=" + nomeIdentidade + ", tipoImprime=" + tipoImprime + ", qtdPaginasImprime=" + qtdPaginasImprime + ", valorImprime=" + valorImprime + ", statusImprime=" + statusImprime + ", nomeDoArquivoImprime=" + nomeDoArquivoImprime + ", dataImprime=" + dataImprime + '}';
+    }
+
 
 
 
