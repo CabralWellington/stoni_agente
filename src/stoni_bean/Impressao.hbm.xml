@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/08/2017 11:33:28 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="stoni_bean.Impressao" table="impressao" catalog="stoni" optimistic-lock="version">
+        <id name="idImpressao" type="java.lang.Long">
+            <column name="ID_Impressao" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="identidade" class="stoni_bean.Identidade" fetch="select">
+            <column name="ID_Identidade" />
+        </many-to-one>
+        <many-to-one name="impressora" class="stoni_bean.Impressora" fetch="select">
+            <column name="ID_Impressora" />
+        </many-to-one>
+        <property name="tipoImprime" type="string">
+            <column name="Tipo_Imprime" length="50" />
+        </property>
+        <property name="qtdPaginasImprime" type="java.lang.Integer">
+            <column name="QtdPaginas_Imprime" />
+        </property>
+        <property name="valorImprime" type="java.lang.Double">
+            <column name="Valor_Imprime" precision="22" scale="0" />
+        </property>
+        <property name="statusImprime" type="java.lang.Double">
+            <column name="Status_Imprime" precision="22" scale="0" />
+        </property>
+        <property name="nomeDoArquivoImprime" type="string">
+            <column name="NomeDoArquivo_Imprime" length="200" />
+        </property>
+        <property name="dataImprime" type="timestamp">
+            <column name="Data_Imprime" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

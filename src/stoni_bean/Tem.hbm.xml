@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/08/2017 11:33:28 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="stoni_bean.Tem" table="tem" catalog="stoni" optimistic-lock="version">
+        <composite-id name="id" class="stoni_bean.TemId">
+            <key-property name="idEquipamento" type="int">
+                <column name="ID_Equipamento" />
+            </key-property>
+            <key-property name="idImpressora" type="int">
+                <column name="ID_Impressora" />
+            </key-property>
+            <key-property name="idPerfil" type="int">
+                <column name="Id_Perfil" />
+            </key-property>
+            <key-property name="idIdentidade" type="int">
+                <column name="ID_Identidade" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="equipamento" class="stoni_bean.Equipamento" update="false" insert="false" fetch="select">
+            <column name="ID_Equipamento" not-null="true" />
+        </many-to-one>
+        <many-to-one name="identidade" class="stoni_bean.Identidade" update="false" insert="false" fetch="select">
+            <column name="ID_Identidade" not-null="true" />
+        </many-to-one>
+        <many-to-one name="impressora" class="stoni_bean.Impressora" update="false" insert="false" fetch="select">
+            <column name="ID_Impressora" not-null="true" />
+        </many-to-one>
+        <many-to-one name="preco" class="stoni_bean.Preco" update="false" insert="false" fetch="select">
+            <column name="Id_Perfil" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

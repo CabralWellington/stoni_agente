@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/08/2017 11:33:28 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="stoni_bean.Equipamento" table="equipamento" catalog="stoni" optimistic-lock="version">
+        <id name="idEquipamento" type="java.lang.Integer">
+            <column name="ID_Equipamento" />
+            <generator class="identity" />
+        </id>
+        <property name="nomeEquipamento" type="string">
+            <column name="Nome_Equipamento" length="50" />
+        </property>
+        <property name="marcaEquipamento" type="string">
+            <column name="Marca_Equipamento" length="50" />
+        </property>
+        <property name="jobNameEquipamento" type="string">
+            <column name="Job_Name_Equipamento" length="50" />
+        </property>
+        <property name="jobNumberEquipamento" type="string">
+            <column name="Job_Number_Equipamento" length="50" />
+        </property>
+        <property name="jobUsernameEquipmaneto" type="string">
+            <column name="Job_Username_Equipmaneto" length="50" />
+        </property>
+        <property name="jobTypeEquipamento" type="string">
+            <column name="Job_Type_Equipamento" length="50" />
+        </property>
+        <property name="jobPagecountEquipamento" type="string">
+            <column name="Job_Pagecount_Equipamento" length="50" />
+        </property>
+        <property name="jobListCountEquipamento" type="java.lang.Integer">
+            <column name="Job_List_Count_Equipamento" />
+        </property>
+        <property name="liveStatusEquipamento" type="java.lang.Integer">
+            <column name="live_status_Equipamento" />
+        </property>
+        <property name="jobDateEquipamento" type="string">
+            <column name="Job_date_equipamento" length="50" />
+        </property>
+        <set name="tems" table="tem" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_Equipamento" not-null="true" />
+            </key>
+            <one-to-many class="stoni_bean.Tem" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/08/2017 11:33:28 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="stoni_bean.Impressora" table="impressora" catalog="stoni" optimistic-lock="version">
+        <id name="idImpressora" type="java.lang.Integer">
+            <column name="ID_Impressora" />
+            <generator class="identity" />
+        </id>
+        <property name="ipImpressora" type="string">
+            <column name="IP_Impressora" length="15" />
+        </property>
+        <property name="nomeImpressora" type="string">
+            <column name="Nome_Impressora" length="50" />
+        </property>
+        <property name="descricaoImpressora" type="string">
+            <column name="Descricao_Impressora" length="50" />
+        </property>
+        <set name="impressaos" table="impressao" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_Impressora" />
+            </key>
+            <one-to-many class="stoni_bean.Impressao" />
+        </set>
+        <set name="tems" table="tem" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_Impressora" not-null="true" />
+            </key>
+            <one-to-many class="stoni_bean.Tem" />
+        </set>
+    </class>
+</hibernate-mapping>
