@@ -47,7 +47,7 @@ public static String ID_Systema = "ADSA_ASDA";
         fila.insereFila(listatemp);
         listatemp.removeAll(listatemp);
         pdu.clear();
-        Thread.sleep(25000);
+        Thread.sleep(10000);
        }
     }
 }
