@@ -5,12 +5,9 @@
  */
 package stoni_dao;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -25,11 +22,9 @@ import stoni_connect.ConnectionFactory;
  * @author SAMSUNG
  */
 public class Impressao_Dao {
-
     Session se;
     Transaction tx;
     private static List<Impressao> lista = new ArrayList<Impressao>();
-    private static List<Impressao> lista2 = new LinkedList<Impressao>();
 
     public void Salvar(Impressao aa1) {
 
@@ -126,18 +121,18 @@ public class Impressao_Dao {
                     impre.setTipoImprime("deu erro");
                 }
                 j++;
-                if (!pdu.get(j).toValueString().equals("")) {
+                if (!pdu.get(j).toValueString().equals("")){
                     impre.setNomeIdentidade(pdu.get(j).toValueString());
                 } else {
                     impre.setNomeIdentidade("Outros");
                 }
                 j++;
                 impre.setDataImprime(mudaDataInsert(pdu.get(j).toValueString()));
-                
+
                 if (impre.getQtdPaginasImprime() != 0) {
                     //System.out.println(impre.toString());
-                impre.setValorImprime(impre.getQtdPaginasImprime()*tem.getPreco().getA4PbPerfil());
-                lista.add(impre);
+                    impre.setValorImprime(impre.getQtdPaginasImprime() * tem.getPreco().getA4PbPerfil());
+                    lista.add(impre);
                 }
             } catch (Exception e) {
             }
@@ -159,8 +154,8 @@ public class Impressao_Dao {
         }
         return aa1;
     }
-    
-    private Date mudaDataInsert(String data){
+
+    private Date mudaDataInsert(String data) {
         long seconds = Long.parseLong(data);
         long milis = (seconds + 14400) * 1000;
         return new Date(milis);
