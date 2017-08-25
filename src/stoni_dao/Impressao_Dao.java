@@ -132,8 +132,8 @@ public class Impressao_Dao {
                     impre.setNomeIdentidade("Outros");
                 }
                 j++;
+                impre.setDataImprime(mudaDataInsert(pdu.get(j).toValueString()));
                 
-                mudaData(pdu.get(j).toValueString());
                 if (impre.getQtdPaginasImprime() != 0) {
                     //System.out.println(impre.toString());
                 impre.setValorImprime(impre.getQtdPaginasImprime()*tem.getPreco().getA4PbPerfil());
@@ -160,13 +160,9 @@ public class Impressao_Dao {
         return aa1;
     }
     
-    private void mudaData(String data){
-        try {
-       SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            System.out.println(sdf.format(new Date(data)));
-        
-        } catch (Exception e) {
-        e.printStackTrace();
-        }
-        }
+    private Date mudaDataInsert(String data){
+        long seconds = Long.parseLong(data);
+        long milis = (seconds + 14400) * 1000;
+        return new Date(milis);
+    }
 }
