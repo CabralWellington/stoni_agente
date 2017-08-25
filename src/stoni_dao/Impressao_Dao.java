@@ -157,7 +157,7 @@ public class Impressao_Dao {
 
     private Date mudaDataInsert(String data) {
         long seconds = Long.parseLong(data);
-        long milis = (seconds + 14400) * 1000;
+        long milis = (seconds) * 1000;
         return new Date(milis);
     }
 }

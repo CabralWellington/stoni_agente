@@ -44,7 +44,7 @@ public static String ID_Systema = "ADSA_ASDA";
         pdu = pdud.conversor(tem);
         pdu = conectaRede.BuscarOid(pdu, tem.getImpressora().getIpImpressora());
         listatemp = impredao.pduToImpressao(pdu, tem);
-        fila.insereFila(listatemp);
+        fila.trataFila(listatemp);
         listatemp.removeAll(listatemp);
         pdu.clear();
         Thread.sleep(10000);
