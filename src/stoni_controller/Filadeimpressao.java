@@ -58,7 +58,13 @@ public class Filadeimpressao {
 
     private void salvaPrimeiro() {
         Impressao_Dao salvaImpressao = new Impressao_Dao();
-        System.out.println(this.filadeimpressao.get(retornaSize()));
+        Impressao impressao = new Impressao();
+        impressao = this.filadeimpressao.get(retornaSize());
+        
+        System.out.println(impressao.toString());
+        //salvaImpressao.Salvar(this.filadeimpressao.get(retornaSize()));
+        //System.out.println(this.filadeimpressao.get(retornaSize()));
+        
     }
 
     private int retornaSize() {

@@ -33,8 +33,9 @@ public class Impressao_Dao {
             tx = se.beginTransaction();
             se.save(aa1);
             tx.commit();
-
+            
             se.close();
+            aa1 = null;
         } catch (Exception e) {
             e.printStackTrace();
 
